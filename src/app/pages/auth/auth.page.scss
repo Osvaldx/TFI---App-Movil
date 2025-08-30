@@ -42,3 +42,32 @@
     width: 100%;
     height: 15vh;
 }
+
+.box-tester-accounts {
+    display: flex;
+    justify-content: center;
+}
+
+ion-segment-button {
+  --indicator-color: #750099;
+}
+
+/* Material Design styles */
+ion-segment-button.md {
+  --color: #000;
+  --color-checked: #750099;
+  --indicator-height: 4px;
+}
+
+/* iOS styles */
+ion-segment-button.ios {
+  --color: #750099;
+  --color-checked: #fff;
+  --border-radius: 20px;
+}
+
+.box-tester {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
