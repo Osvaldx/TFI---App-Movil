@@ -44,14 +44,11 @@ export class AuthPage implements OnInit {
       console.log(resp);
       if(resp.data.user?.role === "authenticated") {
         await this.notify.buildToast(ToastColors.green, "Inicio de sesion exitoso", 1000, "checkmark-circle-outline")
-        this.router.navigateByUrl("home");
-      }
-      
-      if(resp.error) {
-        await this.notify.buildToast(ToastColors.red, "Credenciales invalidas", 20000, "close-circle-outline")
+        this.router.navigateByUrl("home", { replaceUrl: true });
       }
     })
-    .catch((err) => {
+    .catch(async (err) => {
+      await this.notify.buildToast(ToastColors.red, "Credenciales invalidas", 2000, "close-circle-outline")
       console.log(err);
     })
   }
