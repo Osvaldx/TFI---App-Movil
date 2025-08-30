@@ -29,16 +29,16 @@
   <div class="box-tester">
     <ion-button class="btn-custom" style="--background: {{(this.modoTester) ? '#750099' : '#8d8c8d'}}" (click)="modoTesterOnOrOff()" shape="round">modo tester</ion-button>
     <div *ngIf="(this.modoTester)" class="box-tester-accounts">
-      <ion-segment value="custom">
-        <ion-segment-button value="custom" (click)="fieldFill(1)">
+      <ion-segment value="primera">
+        <ion-segment-button value="primera" (click)="fieldFill(1)">
           <ion-label>Cuenta 1</ion-label>
         </ion-segment-button>
   
-        <ion-segment-button value="segment" (click)="fieldFill(2)">
+        <ion-segment-button value="segunda" (click)="fieldFill(2)">
           <ion-label>Cuenta 2</ion-label>
         </ion-segment-button>
   
-        <ion-segment-button value="buttons" (click)="fieldFill(3)">
+        <ion-segment-button value="tercera" (click)="fieldFill(3)">
           <ion-label>Cuenta 3</ion-label>
         </ion-segment-button>
       </ion-segment>
