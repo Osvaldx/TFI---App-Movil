@@ -24,6 +24,11 @@
 .message-alert {
     font-weight: bold;
     color: #c72121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
 }
 
 .message-info {
