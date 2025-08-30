@@ -1,0 +1,20 @@
+$color-green-perfect: #23bb44;
+$color-white-notwhite: rgb(250, 250, 250);
+
+.subtitle {
+    font-size: medium;
+}
+
+ion-toolbar {
+    --background: #{$color-green-perfect};
+    --color: #{$color-white-notwhite};
+    --padding-top: 10px;
+}
+
+.custom-title {
+    text-align: center;
+}
+
+.toolbar-custom {
+    padding: 18px 0px 6px 0px;
+}

@@ -1,0 +1,24 @@
+<ion-content>
+  <app-header title="Inicio de Sesion"></app-header>
+  <div class="box-center">
+    <div class="box-logo">
+      <app-logo image="./assets/icon/logo-login.png" alt="[!] Imagen del login..."></app-logo>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <app-custom-input [controller]="loginForm.controls.email" type="text" label="Email" placeholder="Ingrese su mail..." autocomplete="email" icon="mail-outline"></app-custom-input>
+      <app-custom-input [controller]="loginForm.controls.password" type="password" label="Contraseña" placeholder="Ingrese su contraseña..." autocomplete="email" icon="key"></app-custom-input>
+      <div class="box-messages">
+        @if (loginForm.controls.email.touched && loginForm.controls.email.errors?.['email']) {
+          <p class="message-alert">[!] Ingrese un MAIL VALIDO</p>
+        } @else if (loginForm.controls.email.touched && loginForm.controls.email.errors?.['required']) {
+          <p class="message-alert">[!] El campo MAIL es OBLIGATORIO</p>
+        } @else {
+          <p class="message-info">Ingrese sus credenciales</p>
+        }
+      </div>
+      <div class="box-btn-login">
+        <ion-button class="btn-login" block (click)="onSubmit()">Iniciar Sesion</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>
