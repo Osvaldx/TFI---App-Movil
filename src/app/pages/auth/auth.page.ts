@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { IonContent, IonButton, AlertController } from '@ionic/angular/standalone';
+import { IonContent, IonButton, AlertController, LoadingController } from '@ionic/angular/standalone';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { CustomInputComponent } from "src/app/components/custom-input/custom-input.component";
 import { Auth } from 'src/app/services/auth';
@@ -25,7 +25,7 @@ export class AuthPage implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor(private alertController: AlertController) { }
+  constructor(private alertController: AlertController, private loading: LoadingController) { }
 
   ngOnInit() {
   }
@@ -64,5 +64,21 @@ export class AuthPage implements OnInit {
     .catch((err) => {
       console.log(err);
     })
+  }
+
+  async showLoading(msj: string, duration: number) {
+    const load = await this.loading.create({
+      message: msj,
+      duration: duration,
+    })
+
+    await load.present();
+    await load.onDidDismiss();
+    return
+  }
+
+  async sendPageSignUp() {
+    await this.showLoading("Enviando al registro...", 500);
+    await this.router.navigateByUrl("sign-up");
   }
 }
