@@ -58,6 +58,6 @@ export class AuthPage implements OnInit {
 
   async sendPageSignUp() {
     await this.notify.buildLoading("Enviando al registro...", 500);
-    await this.router.navigateByUrl("sign-up");
+    await this.router.navigateByUrl("sign-up", { replaceUrl: true });
   }
 }
