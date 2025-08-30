@@ -1,0 +1,34 @@
+.custom-menu-btn {
+    font-size: 28px;
+}
+
+.box-menu-btn {
+    background-color: #23bb44;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.btn-custom {
+    --background: #23bb44;
+}
+
+.box-menu-opciones {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.box-opciones-user {
+    height: 50%;
+    padding: 5px 10px;
+}
+
+.box-opcion-signout {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px;
+}
