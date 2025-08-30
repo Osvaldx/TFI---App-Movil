@@ -13,15 +13,15 @@ export class Auth {
     );
   }
 
-  signUp(email: string, password: string) {
+  async signUp(email: string, password: string) {
     return this.supabase.auth.signUp({ email, password });
   }
 
-  signIn(email: string, password: string) {
+  async signIn(email: string, password: string) {
     return this.supabase.auth.signInWithPassword({ email, password });
   }
 
-  signOut() {
+  async signOut() {
     return this.supabase.auth.signOut();
   }
 }
