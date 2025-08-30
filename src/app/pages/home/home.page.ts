@@ -1,7 +1,7 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonMenu, IonMenuButton, IonButton, IonAvatar, IonLabel, IonChip } from '@ionic/angular/standalone';
 import { Auth } from 'src/app/services/auth';
 import { Router } from '@angular/router';
 import { HeaderComponent } from 'src/app/components/header/header.component';
@@ -12,7 +12,7 @@ import { distinctUntilChanged, map } from 'rxjs';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [IonButton, IonContent, CommonModule, FormsModule, HeaderComponent]
+  imports: [IonChip, IonLabel, IonAvatar, IonButton, IonMenu, IonContent, CommonModule, FormsModule, HeaderComponent, IonMenuButton]
 })
 export class HomePage implements OnInit {
 
