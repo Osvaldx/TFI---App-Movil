@@ -4,7 +4,7 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { addIcons } from 'ionicons';
-import { mailOutline, eyeOutline, eyeOffOutline, keyOutline } from "ionicons/icons"
+import { mailOutline, eyeOutline, eyeOffOutline, keyOutline, lockOpenOutline } from "ionicons/icons"
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -18,5 +18,6 @@ addIcons({
   'mail-outline': mailOutline,
   'eye-outline': eyeOutline,
   'eye-off-outline': eyeOffOutline,
-  'key': keyOutline
+  'key': keyOutline,
+  'lock-open-outline': lockOpenOutline
 })
