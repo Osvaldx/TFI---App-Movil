@@ -1,5 +1,29 @@
-<app-header title="Home"></app-header>
-<ion-content [fullscreen]="true">
-  <p *ngIf="email$ | async as email">Cuenta: {{email}}</p>
-  <ion-button (click)="signOut()" expand="block" fill="clear" shape="round">Sign Out</ion-button>
-</ion-content>
+<ion-menu contentId="main-content">
+  <app-header title="Menu de opciones"></app-header>
+  <ion-content class="ion-padding">
+    <div class="box-menu-opciones">
+      <div class="box-opciones-user">
+        <ion-chip>
+          <ion-avatar>
+            <img alt="[!]" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+          <ion-label *ngIf="email$ | async as email">Cuenta: {{email}}</ion-label>
+        </ion-chip>
+      </div>
+      <div class="box-opcion-signout">
+        <ion-button (click)="signOut()" class="btn-custom" expand="block" shape="round">Cerrar sesion</ion-button>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <app-header title="Home"></app-header>
+  <div class="box-menu-btn">
+    <p>Menu de opciones</p>
+    <ion-menu-button class="custom-menu-btn"></ion-menu-button>
+  </div>
+  <ion-content class="ion-padding">
+    <p>Hola</p>
+  </ion-content>
+</div>
