@@ -1,0 +1,39 @@
+.btn-custom {
+    --background: #23bb44;
+}
+
+.box-center {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-btn-register {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.box-messages {
+    text-align: center;
+}
+
+.message-alert {
+    font-weight: bold;
+    color: #c72121;
+}
+
+.message-info {
+    font-weight: bold;
+    color: #1b9135;
+}
+
+.box-logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 15vh;
+}

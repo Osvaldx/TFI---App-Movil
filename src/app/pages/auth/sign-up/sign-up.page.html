@@ -1,0 +1,28 @@
+<ion-content>
+  <app-header title="Registro"></app-header>
+  <div class="box-center">
+    <div class="box-logo">
+      <app-logo image="./assets/icon/logo-login.png" alt="[!] Imagen del login..."></app-logo>
+    </div>
+    <form [formGroup]="registerForm">
+      <app-custom-input [controller]="registerForm.controls.email" type="text" label="Email" placeholder="Ingrese su mail..." autocomplete="email" icon="mail-outline"></app-custom-input>
+      <app-custom-input [controller]="registerForm.controls.password" type="password" label="Contraseña" placeholder="Ingrese su contraseña..." autocomplete="off" icon="key"></app-custom-input>
+      <app-custom-input [controller]="registerForm.controls.repeatPassword" type="password" label="Repetir contraseña" placeholder="Repita su contraseña..." autocomplete="off" icon="lock-open-outline"></app-custom-input>
+      <div class="box-messages">
+        @if (registerForm.controls.email.touched && registerForm.controls.email.errors?.['email']) {
+          <p class="message-alert">[!] Ingrese un MAIL VALIDO</p>
+        } @else if (registerForm.controls.email.touched && registerForm.controls.email.errors?.['required']) {
+          <p class="message-alert">[!] El campo MAIL es OBLIGATORIO</p>
+        } @else {
+          <p class="message-info">Ingrese sus credenciales</p>
+        }
+      </div>
+      <div class="box-btn-register">
+        <ion-button class="btn-custom" block (click)="sendRegister()">Registrarse</ion-button>
+      </div>
+    </form>
+    <br>
+    <p>Ya tenes una cuenta registrada?</p>
+    <ion-button class="btn-custom" block (click)="sendPageLogin()">Volver al login</ion-button>
+  </div>
+</ion-content>
