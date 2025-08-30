@@ -6,7 +6,7 @@
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <app-custom-input [controller]="loginForm.controls.email" type="text" label="Email" placeholder="Ingrese su mail..." autocomplete="email" icon="mail-outline"></app-custom-input>
-      <app-custom-input [controller]="loginForm.controls.password" type="password" label="Contraseña" placeholder="Ingrese su contraseña..." autocomplete="email" icon="key"></app-custom-input>
+      <app-custom-input [controller]="loginForm.controls.password" type="password" label="Contraseña" placeholder="Ingrese su contraseña..." autocomplete="off" icon="key"></app-custom-input>
       <div class="box-messages">
         @if (loginForm.controls.email.touched && loginForm.controls.email.errors?.['email']) {
           <p class="message-alert">[!] Ingrese un MAIL VALIDO</p>
@@ -17,8 +17,11 @@
         }
       </div>
       <div class="box-btn-login">
-        <ion-button class="btn-login" block (click)="onSubmit()">Iniciar Sesion</ion-button>
+        <ion-button class="btn-custom" block (click)="onSubmit()">Iniciar Sesion</ion-button>
       </div>
     </form>
+    <br>
+    <p>No tenes una cuenta registrada?</p>
+    <ion-button class="btn-custom" block (click)="sendPageSignUp()">Registrarse</ion-button>
   </div>
 </ion-content>
