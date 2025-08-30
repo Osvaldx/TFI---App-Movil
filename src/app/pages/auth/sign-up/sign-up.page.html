@@ -1,5 +1,5 @@
 <ion-content>
-  <app-header title="Registro"></app-header>
+  <app-header id="header" title="Registro"></app-header>
   <div class="box-center">
     <div class="box-logo">
       <app-logo image="./assets/icon/logo-login.png" alt="[!] Imagen del login..."></app-logo>
@@ -10,15 +10,20 @@
       <app-custom-input [controller]="registerForm.controls.repeatPassword" type="password" label="Repetir contraseña" placeholder="Repita su contraseña..." autocomplete="off" icon="lock-open-outline"></app-custom-input>
       <div class="box-messages">
         @if (registerForm.controls.email.touched && registerForm.controls.email.errors?.['email']) {
-          <p class="message-alert">[!] Ingrese un MAIL VALIDO</p>
-        } @else if (registerForm.controls.email.touched && registerForm.controls.email.errors?.['required']) {
-          <p class="message-alert">[!] El campo MAIL es OBLIGATORIO</p>
-        } @else {
+          <p class="message-alert"><ion-icon style="font-size:20px" name="alert-circle-outline"></ion-icon>Ingrese un MAIL VÁLIDO</p>
+        }
+        @if (registerForm.controls.email.touched && registerForm.controls.email.errors?.['required']) {
+          <p class="message-alert"><ion-icon style="font-size:20px" name="alert-circle-outline"></ion-icon>El campo MAIL es OBLIGATORIO</p>
+        }
+        @if (registerForm.hasError('passwordMismatch') && (registerForm.controls.repeatPassword.dirty || registerForm.controls.repeatPassword.touched)) {
+          <p class="message-alert"><ion-icon style="font-size:20px" name="alert-circle-outline"></ion-icon>Las contraseñas no son iguales</p>
+        }
+        @if (!registerForm.invalid) {
           <p class="message-info">Ingrese sus credenciales</p>
         }
       </div>
       <div class="box-btn-register">
-        <ion-button class="btn-custom" block (click)="sendRegister()">Registrarse</ion-button>
+        <ion-button class="btn-custom" block (click)="sendRegister('top')">Registrarse</ion-button>
       </div>
     </form>
     <br>
