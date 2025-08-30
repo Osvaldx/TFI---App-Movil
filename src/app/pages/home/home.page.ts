@@ -27,7 +27,7 @@ export class HomePage implements OnInit {
     .then((resp) => {
       console.log(resp);
       if(resp.error === null) {
-        this.router.navigateByUrl("/");
+        this.router.navigateByUrl("/", { replaceUrl: true });
       }
     })
     .catch((err) => {
