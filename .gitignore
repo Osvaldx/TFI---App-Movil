@@ -12,6 +12,8 @@ $RECYCLE.BIN/
 *.log
 log.txt
 
+android
+/android
 
 /.sourcemaps
 /.versions
@@ -54,6 +56,8 @@ package.json
 !.vscode/extensions.json
 .history/*
 
+/android
+/ios
 
 # Miscellaneous
 /.angular
