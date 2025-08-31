@@ -3,6 +3,7 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular'
+import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-root',
@@ -12,18 +13,25 @@ import { Platform } from '@ionic/angular'
 })
 export class AppComponent {
   constructor(private platform: Platform) {
-    this.configureStatusBar();
     this.platform.ready().then(() => {
-      StatusBar.setOverlaysWebView({ overlay: false }); // Evita que se superponga
-      StatusBar.setBackgroundColor({ color: '#687FE5' }); // Opcional, color de la barra
+      this.showSplash();
+      this.setupNativeUI();
     });
   }
 
-  async configureStatusBar() {
-    if(Capacitor.getPlatform() != 'web') {
+  private async setupNativeUI() {
+    if (Capacitor.getPlatform() !== 'web') {
       await StatusBar.setOverlaysWebView({ overlay: false });
-      await StatusBar.setBackgroundColor({ color: '#ffffff'});
+      await StatusBar.setBackgroundColor({ color: '#ffffff' });
       await StatusBar.setStyle({ style: Style.Light });
+      // Splash de arranque queda manejado por capacitor.config.ts
     }
+  }
+
+  async showSplash() {
+    await SplashScreen.show({
+      autoHide: true,
+      showDuration: 3000,
+    })
   }
 }
