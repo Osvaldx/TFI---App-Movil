@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { LogoComponent } from 'src/app/components/logo/logo.component';
 import { Notify } from 'src/app/services/notify';
 import { ToastColors } from 'src/app/enums/list-colors-toast';
-import { DEV_ACOUNTS, DevAccount } from 'src/app/dev/dev-account';
+import { DEV_ACOUNTS } from 'src/app/dev/dev-account';
 
 @Component({
   selector: 'app-auth',
@@ -38,20 +38,19 @@ export class AuthPage implements OnInit {
 
   async signIn() {
     if(this.loginForm.controls.email.value === "" || this.loginForm.controls.password.value === "") {
-      await this.notify.buildToast(ToastColors.red, "Complete todos los campos", 2000, "close-circle-outline")
+      await this.notify.buildToast(ToastColors.red, "Complete todos los campos", 2000, "auth-header", "close-circle-outline")
       return
     }
     
     this.authService.signIn(this.loginForm.controls.email.value!, this.loginForm.controls.password.value!)
     .then(async (resp) => {
-      console.log(resp);
       if(resp.data.user?.role === "authenticated") {
-        await this.notify.buildToast(ToastColors.green, "Inicio de sesion exitoso", 1000, "checkmark-circle-outline")
+        await this.notify.buildToast(ToastColors.green, "Inicio de sesion exitoso", 1000, "auth-header", "checkmark-circle-outline")
         this.router.navigateByUrl("home", { replaceUrl: true });
       }
     })
     .catch(async (err) => {
-      await this.notify.buildToast(ToastColors.red, "Credenciales invalidas", 2000, "close-circle-outline")
+      await this.notify.buildToast(ToastColors.red, "Credenciales invalidas", 2000, "auth-header", "close-circle-outline")
       console.log(err);
     })
   }
