@@ -1,0 +1,41 @@
+ion-content {
+    --background: #23bb44;
+}
+
+#animation-logo-in {
+    -webkit-animation:bounce-in-top 1s both;animation:bounce-in-top 1s both;
+}
+
+#animation-logo-out {
+    -webkit-animation:slide-out-blurred-bottom .45s cubic-bezier(.755,.05,.855,.06) both;animation:slide-out-blurred-bottom .45s cubic-bezier(.755,.05,.855,.06) both
+}
+
+.container-img img {
+    width: 250px;
+}
+
+.container-global {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#animation-text-in {
+    -webkit-animation:tracking-in-expand-fwd-top .8s cubic-bezier(.215,.61,.355,1.000) both;animation:tracking-in-expand-fwd-top .8s cubic-bezier(.215,.61,.355,1.000) both;
+}
+
+#animation-text-out {
+    -webkit-animation:text-blur-out .7s cubic-bezier(.55,.085,.68,.53) both;animation:text-blur-out .7s cubic-bezier(.55,.085,.68,.53) both;
+}
+
+.font-text{
+    letter-spacing: 2px;
+    font-family: "Londrina Solid", sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: #f8f0e5;
+    -webkit-text-stroke: 1.5px #000000b4;
+    text-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
