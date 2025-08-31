@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
     this.authService.signOut()
     .then((resp) => {
       if(resp.error === null) {
-        this.router.navigateByUrl("/", { replaceUrl: true });
+        this.router.navigateByUrl("auth", { replaceUrl: true });
       }
     })
     .catch((err) => {
