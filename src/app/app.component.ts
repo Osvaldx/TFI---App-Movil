@@ -3,7 +3,6 @@ import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { Capacitor } from '@capacitor/core';
 import { Platform } from '@ionic/angular'
-import { SplashScreen } from '@capacitor/splash-screen';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +13,6 @@ import { SplashScreen } from '@capacitor/splash-screen';
 export class AppComponent {
   constructor(private platform: Platform) {
     this.platform.ready().then(() => {
-      this.showSplash();
       this.setupNativeUI();
     });
   }
@@ -26,12 +24,5 @@ export class AppComponent {
       await StatusBar.setStyle({ style: Style.Light });
       // Splash de arranque queda manejado por capacitor.config.ts
     }
-  }
-
-  async showSplash() {
-    await SplashScreen.show({
-      autoHide: true,
-      showDuration: 3000,
-    })
   }
 }
