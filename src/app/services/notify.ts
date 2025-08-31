@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { ToastController, LoadingController } from '@ionic/angular'
+import { ToastController, LoadingController } from '@ionic/angular/standalone'
 import { ToastColors } from '../enums/list-colors-toast';
 
 @Injectable({
@@ -11,13 +11,13 @@ export class Notify {
   private toastController = inject(ToastController)
   private loading = inject(LoadingController)
 
-  async buildToast(color: ToastColors, msg: string, ms: number, iconname: string) {
+  async buildToast(color: ToastColors, msg: string, ms: number, positionAnchor: string, iconname: string) {
     const toast = await this.toastController.create({
       color: color,
       message: msg,
       duration: ms,
       position: 'top',
-      positionAnchor: 'header',
+      positionAnchor: positionAnchor,
       icon: iconname
     })
 
